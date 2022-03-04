@@ -13,3 +13,10 @@ another service of amazon to send messages
 
 Lambda trigger
 Its a pre Sign up process , which will send the request and the response back to the user pool so it tells whether this user is needed to be allowed or not , basically its a two way authentication. <3
+
+## Conclusion
+
+This Repo starts from initially by start working from the userpool ,
+and after that we start doing lambda trigger - to trigger the lambda function when required e.g pre signup as used in the step -01
+After that I used the userPool Client to access the clientSide with the credentials
+Then After It , I used to SignIn from any External Provider like Google and created the client credentials as well and also connect to the developers console as well there.
