@@ -1,0 +1,94 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Example01UserpoolWithLambdaTriggerStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Example01UserpoolWithLambdaTriggerStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Example01UserpoolWithLambdaTriggerStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Example01UserpoolWithLambdaTriggerStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/91038b5b66a4b59f30d596700be432f768d3d6243528c7d4f0e4e46f9cffd4c3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Example01UserpoolWithLambdaTriggerStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Example01UserpoolWithLambdaTriggerStack.assets"
+      ],
+      "metadata": {
+        "/Example01UserpoolWithLambdaTriggerStack/LambdaFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionServiceRoleC555A460"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/LambdaFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionBF21E41F"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/LambdaFunction/PreSignUpCognito": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionPreSignUpCognito1FBB30AE"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/LambdaTriggerPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaTriggerPoolBCB2ACED"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Example01UserpoolWithLambdaTriggerStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Example01UserpoolWithLambdaTriggerStack"
+    }
+  }
+}
