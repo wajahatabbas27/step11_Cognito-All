@@ -1,0 +1,88 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Example04CognitoIdentityProviderWithoutAmplifyStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Example04CognitoIdentityProviderWithoutAmplifyStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Example04CognitoIdentityProviderWithoutAmplifyStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Example04CognitoIdentityProviderWithoutAmplifyStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4d34e0bc1b3eebf83e727e088f9bd8661b4ada5278bd9d5401e81c5410f24f0e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Example04CognitoIdentityProviderWithoutAmplifyStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Example04CognitoIdentityProviderWithoutAmplifyStack.assets"
+      ],
+      "metadata": {
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myuserpool01998219"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool/CognitoDomain/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myuserpoolCognitoDomain3CADA6A3"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/app-client/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "appclientA054425F"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Example04CognitoIdentityProviderWithoutAmplifyStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Example04CognitoIdentityProviderWithoutAmplifyStack"
+    }
+  }
+}

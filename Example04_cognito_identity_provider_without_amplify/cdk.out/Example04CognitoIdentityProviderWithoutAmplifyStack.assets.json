@@ -1,0 +1,19 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "4d34e0bc1b3eebf83e727e088f9bd8661b4ada5278bd9d5401e81c5410f24f0e": {
+      "source": {
+        "path": "Example04CognitoIdentityProviderWithoutAmplifyStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "4d34e0bc1b3eebf83e727e088f9bd8661b4ada5278bd9d5401e81c5410f24f0e.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

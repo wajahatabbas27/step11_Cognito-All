@@ -1,0 +1,192 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.0.78"
+        }
+      },
+      "Example04CognitoIdentityProviderWithoutAmplifyStack": {
+        "id": "Example04CognitoIdentityProviderWithoutAmplifyStack",
+        "path": "Example04CognitoIdentityProviderWithoutAmplifyStack",
+        "children": {
+          "myuserpool": {
+            "id": "myuserpool",
+            "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Cognito::UserPool",
+                  "aws:cdk:cloudformation:props": {
+                    "accountRecoverySetting": {
+                      "recoveryMechanisms": [
+                        {
+                          "name": "verified_email",
+                          "priority": 1
+                        }
+                      ]
+                    },
+                    "adminCreateUserConfig": {
+                      "allowAdminCreateUserOnly": false
+                    },
+                    "aliasAttributes": [
+                      "email"
+                    ],
+                    "autoVerifiedAttributes": [
+                      "email"
+                    ],
+                    "emailVerificationMessage": "Hello, Thanks for signing up to our awesome app! Your verification code is {####}",
+                    "emailVerificationSubject": "Verify your email for our awesome app!",
+                    "schema": [
+                      {
+                        "name": "name",
+                        "mutable": true,
+                        "required": true
+                      },
+                      {
+                        "name": "email",
+                        "mutable": false,
+                        "required": true
+                      }
+                    ],
+                    "smsVerificationMessage": "The verification code to your new account is {####}",
+                    "usernameConfiguration": {
+                      "caseSensitive": false
+                    },
+                    "verificationMessageTemplate": {
+                      "defaultEmailOption": "CONFIRM_WITH_CODE",
+                      "emailMessage": "Hello, Thanks for signing up to our awesome app! Your verification code is {####}",
+                      "emailSubject": "Verify your email for our awesome app!",
+                      "smsMessage": "The verification code to your new account is {####}"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cognito.CfnUserPool",
+                  "version": "2.14.0"
+                }
+              },
+              "CognitoDomain": {
+                "id": "CognitoDomain",
+                "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool/CognitoDomain",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/myuserpool/CognitoDomain/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Cognito::UserPoolDomain",
+                      "aws:cdk:cloudformation:props": {
+                        "domain": "my-awesome-app3",
+                        "userPoolId": {
+                          "Ref": "myuserpool01998219"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
+                      "version": "2.14.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cognito.UserPoolDomain",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_cognito.UserPool",
+              "version": "2.14.0"
+            }
+          },
+          "app-client": {
+            "id": "app-client",
+            "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/app-client",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/app-client/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Cognito::UserPoolClient",
+                  "aws:cdk:cloudformation:props": {
+                    "userPoolId": {
+                      "Ref": "myuserpool01998219"
+                    },
+                    "allowedOAuthFlows": [
+                      "code"
+                    ],
+                    "allowedOAuthFlowsUserPoolClient": true,
+                    "allowedOAuthScopes": [
+                      "openid",
+                      "email"
+                    ],
+                    "callbackUrLs": [
+                      "http://localhost:8000/dashboard"
+                    ],
+                    "generateSecret": true,
+                    "logoutUrLs": [
+                      "http://localhost:8000"
+                    ],
+                    "supportedIdentityProviders": [
+                      "COGNITO"
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cognito.CfnUserPoolClient",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_cognito.UserPoolClient",
+              "version": "2.14.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.14.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "Example04CognitoIdentityProviderWithoutAmplifyStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.78"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.14.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.14.0"
+    }
+  }
+}
